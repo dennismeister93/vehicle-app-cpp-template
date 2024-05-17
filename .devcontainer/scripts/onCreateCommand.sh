@@ -29,8 +29,12 @@ echo "### Run VADF Lifecycle Management                   ###"
 echo "#######################################################"
 # needed to get rid of old leftovers
 sudo rm -rf ~/.velocitas
+pip config set global.index-url https://pypi.org/simple 
+pip config set install.trusted-host pypi.org 
+pip install --upgrade pip --no-cache-dir 
+ 
 velocitas init
-velocitas sync
+
 
 sudo chmod +x .devcontainer/scripts/*.sh
 sudo chown -R $(whoami) $HOME
